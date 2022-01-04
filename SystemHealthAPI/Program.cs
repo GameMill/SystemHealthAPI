@@ -305,7 +305,9 @@ namespace SystemHealthAPI
                 if (hardware.HardwareType == OpenHardwareMonitor.Hardware.HardwareType.HDD)
                 {
                     hardware.Update();
+                    Type type = hardware.GetType();
                     OpenHardwareMonitor.Hardware.HDD.GenericHarddisk hd = (OpenHardwareMonitor.Hardware.HDD.GenericHarddisk)hardware;
+
 
                     if (!FirstHddRun.ContainsKey(hd.driveInfos[0].Name))
                     {
@@ -329,7 +331,7 @@ namespace SystemHealthAPI
                             }
                         }
                         Drives.Add(drive);
-                        FirstHddRun[hd.driveInfos[0].Name] = true;
+                        FirstHddRun[hd.Name] = true;
                     }
                     else
                     {
@@ -484,9 +486,17 @@ namespace SystemHealthAPI
                             }
                             else
                             {
-                                int temp = int.Parse(Sensor.Name.Substring("CPU Core #".Length)) - 1;
-                                CPU.Cores[temp].Temperature = convertFloat(Sensor.Value);
-                                Temperature += CPU.Cores[temp].Temperature;
+                                try
+                                {
+                                    int temp = int.Parse(Sensor.Name.Substring("CPU Core #".Length)) - 1;
+                                    CPU.Cores[temp].Temperature = convertFloat(Sensor.Value);
+                                    Temperature += CPU.Cores[temp].Temperature;
+                                }
+                                catch 
+                                {
+
+                                }
+                                
                             }
 
                         }
