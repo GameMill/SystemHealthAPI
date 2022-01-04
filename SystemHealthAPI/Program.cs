@@ -331,7 +331,7 @@ namespace SystemHealthAPI
                             }
                         }
                         Drives.Add(drive);
-                        FirstHddRun[hd.Name] = true;
+                        FirstHddRun[hd.driveInfos[0].Name] = true;
                     }
                     else
                     {
