@@ -4,7 +4,6 @@
 [![release](https://img.shields.io/github/v/release/GameMill/WinPE_OS_Installer)](https://github.com/GameMill/SystemHealthAPI/releases)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-blue.svg)](https://github.com/GameMill/SystemHealthAPI/pulls)
 
-```markdown
 # 🖥️ System Health API
 
 A lightweight System Health Checker that gathers CPU, GPU, RAM, drive, and network metrics and exposes them via a local HTTP endpoint (with JSONP support).
